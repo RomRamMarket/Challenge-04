@@ -92,18 +92,77 @@
 
 
 <p>Creamos un folder para los scripts y movimos el script antes creado hacia el folder llamado <code>scripts</code>.</p>
-
 <image
   src="Challenge04/moveScripts.png"
   width = 80%
   height = 80%>
 
 
+<p>Antes de escribir código, creamos un objeto vacío dentro de la jerarquía del robot. Este objeto vacío nos servirá como punto referente del lugar de <code>spawn</code> de las balas.</p>
+<image
+  src="Challenge04/createEmpty.png"
+  width = 80%
+  height = 80%>
+
+<p>Ahora editamos el script llamado <code>fowardMovement</code> que está atado a la bala, entonces lo abrimos presionando 2 veces en el archivo que nos va a aparecer dentro del folder de sripts. Esto abrirá el script en cuestión en el editor que tengamos seleccionado como el de nuestra preferencia, en nuestro caso <Code>Visual Studio Code</Code>. A continuación se muestra una captura del código que debe ir dentro del archivo <code>fowardMovement</code>.</p>
+<image
+  src="Challenge04/bulletCode.png"
+  width = 80%
+  height = 80%>
+
+
+<h2>Creamos un nuevo script que esté vinculado con el asset que importamos.</h2>
+<p>Elegimos el nombre de <code>PlayerScript</code>.</p>
+<image
+  src="Challenge04/AddScriptRobot.png"
+  width = 80%
+  height = 80%>
 
 
 
+<p>En la próxima imagen se añade el código que añadimos al script <code>PlayerScript</code>. El código incluye comentarios descriptivos de lo añadido.</p>
+<image
+  src="Challenge04/spawnCode.png"
+  width = 80%
+  height = 80%>
+
+
+<p>Luego, seleccionamos el robot y en la parte derecha seleccionaremos los <code>Game Objects</code> a los que se hacen referencia en el código.</p>
+<image
+  src="Challenge04/setReference.png"
+  width = 80%
+  height = 80%>
 
   
+<p>Luego damos play y corroboramos que al dar <code>Left click</code> se haga el <code>spawn</code> de las balas correctamente. En el video acontinuación puede ver como se realiza el <code>spawn</code> de las balas.</p>
+
+[![Descripción del video]](Challenge04/bulletSpawn.mp4)
+
+
+
+
+<h2>Adaptación del código en C# a <code>Visual Graph</code>.</h2>
+
+<p>Comenzamos creando un nuevo <code>Visual Scripting</code> vinculado al robot.</p>
+<image
+  src="Challenge04/AddVisualScript.png"
+  width = 80%
+  height = 80%>
+
+
+<p>En la parte izquierda bajo el renglón de <code>Objecto</code> añadimos las variables que vamos a necesitar.</p>
+<image
+  src="Challenge04/createObjectVars.png"
+  width = 80%
+  height = 80%>
+
+
+<p> "Traducimos" el código en C# al Visual Graph. Cada nodo o "caja" se inserta presionando <code>Right Click >> Add node</code>. Una vez tenemos un pedazo del Visual Graph que realiza una función particular es una buena práctica agrupar todos los nodos. Para mientras presionamos <code>Ctrl</code> seleccionamos los nodos. Luego podemos ponerle un nombre al grupo de nodos, en nuestro caso le llamamos <code>Bullet Spawn</code>.</p>
+<image
+  src="Challenge04/bulletSpawnGraph.png"
+  width = 80%
+  height = 80%>
+
 
 
   
