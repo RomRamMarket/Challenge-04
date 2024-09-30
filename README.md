@@ -134,10 +134,7 @@
   height = 35%>
 
   
-<p>Luego damos play y corroboramos que al dar <code>Left click</code> se haga el <code>spawn</code> de las balas correctamente. En el video acontinuación puede ver como se realiza el <code>spawn</code> de las balas.</p>
-
-
-[![Bullet Spawn](miniatura.png)](Challenge04/bulletSpawn.mp4)
+<p>Luego damos play y corroboramos que al dar <code>Left click</code> se haga el <code>spawn</code> de las balas correctamente. En  <a href="https://youtu.be/610h-I4UDWE?si=PiAp8QNyCGdQ4XSU"> este video</a> puede ver como se realiza el <code>spawn</code> de las balas.</p>
 
 
 
