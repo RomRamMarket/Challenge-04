@@ -1,6 +1,10 @@
 # Challenge-04
 
 
+<h2>Reflexión</h2>
+<p>En este reto pudimos dar nuestros primeros pasos a manejar los inputs del jugador para provocar movimientos en un personaje específico. Es interesante lo intuitivo que es el proceso pues simplemente se verifica si las teclas que nos interesa vigilar están siendo presionadas o no. Esto también nos habla de que algo muy importante al programar en un videojuego es tener esa estructuta lógica de saber que ciertos <code>scripts</code> deben estar asociados a un elemento particular del videojuego. Como por ejemplo asociar el código de clonar al prefab de la bala o al manero del input del teclado con el robot.</p>
+
+
 <h2>Instalando <code>Assets</code> que utilizaremos más adelante.</h2>
 <p>Comenzamos accesando el Asset Store.</p>
 <image
