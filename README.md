@@ -1,5 +1,4 @@
-# Challenge-04
-
+# Challenge 04: Bullet Time
 
 <h2>Reflexión</h2>
 <p>En este reto pudimos dar nuestros primeros pasos a manejar los inputs del jugador para provocar movimientos en un personaje específico. Es interesante lo intuitivo que es el proceso pues simplemente se verifica si las teclas que nos interesa vigilar están siendo presionadas o no. Esto también nos habla de que algo muy importante al programar en un videojuego es tener esa estructuta lógica de saber que ciertos <code>scripts</code> deben estar asociados a un elemento particular del videojuego. Como por ejemplo asociar el código de clonar al prefab de la bala o al manero del input del teclado con el robot.</p>
@@ -165,6 +164,37 @@
   width = 80%
   height = 80%>
 
+<h2>Creando el terreno y añadiendo el personaje en la escena</h2>
 
+<p>Creamos un terreno sencillo simplemente para probar nuestro personaje. En este caso, utilizamos un material sacado de las librerías que se instalaron anteriormente.</p>
 
+<image src="img/Terrain01.png" width=80% height=80%>
+<image src="img/Terrain02.png" width=80% height=80%>
+<image src="img/Terrain03.png" width=80% height=80%>
+
+<p>Arrastramos el prefab que creamos del personaje y lo añadimos a la escena de nuestro juego para que esté ubicado en algún punto sobre el terreno.</p>
+
+<image src="img/Character.png" width=80% height=80%>
+
+<h2>Programando movimiento del personaje con teclado</h2>
+
+<p>Volvemos al <code>PlayerScript</code> que ya creamos y lo abrimos en nuestro editor de preferencia. Dentro de la clase, creamos variables para las velocidades de traslación y rotación.</p>
+
+<image src="img/Script02.png" width=80% height=80%>
+
+<p>Dentro de la función <code>Update()</code>, definimos el movimiento del personaje de la siguiente manera:</p>
+
+<image src="img/Script03.png" width=80% height=80%>
+
+<p>Note que todas las velocidades están siendo escaladas por un factor de <code>deltaTime</code>. Esto es para tomar en cuenta la cantidad de FPS a la que corre el juego en cada máquina y que la velocidad sea consistente sin depender de los FPS.</p>
+
+<p>Finalmente, ajustamos la cámara para poder visualizar correctamente el personaje.</p>
+
+<image src="img/Camera.png" width=80% height=80%>
+
+<h3>Una adición de bono</h3>
+
+<p>Para que el "debugging" del juego sea menos tedioso, añadimos las siguientes líneas en la función <code>Start()</code> para que el cursor del ratón no sea visible mientras movemos el personaje.</p>
+
+<image src="img/Bonus.png" width=80% height=80%>
   
