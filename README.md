@@ -2,6 +2,7 @@
 
 <h2>Reflexión</h2>
 <p>En este reto pudimos dar nuestros primeros pasos a manejar los inputs del jugador para provocar movimientos en un personaje específico. Es interesante lo intuitivo que es el proceso pues simplemente se verifica si las teclas que nos interesa vigilar están siendo presionadas o no. Esto también nos habla de que algo muy importante al programar en un videojuego es tener esa estructuta lógica de saber que ciertos <code>scripts</code> deben estar asociados a un elemento particular del videojuego. Como por ejemplo asociar el código de clonar al prefab de la bala o al manero del input del teclado con el robot.</p>
+<p>A pesar de ser bastante intutivo la logica tras este sistema de movimiento de manera scripted, tuvimos la experiencia de traducir el C# script a un Visual Graph, una manera de hecha principalmente para aquellos que no son diestros en lenguajes de programacion. Basado en esta experiencia, podemos concluir que el sistema de Visual Graph, aunque efectivo, es muchisimo mas tedioso y trabajoso manejar ya que se cada cosa se basa en las interacciones de los nodos que ponga el desarrollador y sus conexiones a otros nodos. Esto se debe a que para cada nodo hay que repetidamente buscar en una lista de muchisimos otros nodos y este proceso consume mas tiempo que cuando haces un script directamente para Unity con C#. Es un buen sistema, pero como personas con un poco mas experiencia de lo normal programando, preferimos hacer scripts y no Visual Graphs.</p>
 
 
 <h2>Instalando <code>Assets</code> que utilizaremos más adelante.</h2>
