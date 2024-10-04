@@ -198,3 +198,58 @@
 
 <image src="img/Bonus.png" width=80% height=80%>
   
+<h2>Creando movimiento de personaje en Visual Graph</h2>
+<p>Primero, declararemos 2 variables que utilizaremos para el movimiento de nuestro personaje. En la parte del extremo izquierdo podemos definir variables en <code>(New Variable Name)</code> y crearemos
+<code>Float speed</code> y <code>Float speedRotation</code>.</p>
+
+<image src="Challenge 4/variables.png" width=50% height=50%>
+
+<h2>Blueprint para movimiento</h2>
+<p>Para empezar con nuestro movimiento, queremos crear el blueprint que utilizaremos en todos los movimientos. Para esto, queremos darle <code>Right Click > "Get Key" x2</code> y estos nodos nos van a servir para que el juego reconozca entradas del jugador desde dos llaves distintas. Vayamos al primer nodo y al acercarnos podemos ver que pide un "Key" para reconocer, en este, queremos que reconozca la tecla<code> Key 'W' </code> mientras que en el otro nodo, reconozca la tecla <code> Key 'Up Arrow'</code>, esto es para empezar con nuestro movimiento hacia el frente.</p>
+
+<p>Luego, vamos a pasar estos dos inputs por un operador 'OR' <code>Right Click > Logical Or</code> y los conectaremos via los circulitos violetas en el nodo 'OR' en los sockets A y B. El resultado de este 'OR' debe ser verificado mediante un  nodo 'IF' <code> Right Click > If </code>. Tambien necesitaremos preparar el movimiento del modelo en si, para esto, utilizamos el nodo 'Transform.Translate' <code>Right Click > Translate (X, Y, Z)</code> y conectamos nuestro nodo 'IF' desde la flecha 'True' a la flecha del nodo 'Transform.Translate'. </p>
+
+<p>Finalmente, vamos a querer utilizar nuestra variable 'speed' para poder mover nuestro jugador a la direccion querida. Para comenzar este proceso, necesitamos acceso a la variable: <code> (HOLD) Left Click on 'speed' variable > Drag and Drop in canvas</code>. Ahora debemos tener un nodo 'Get Variable', luego vamos a querer multiplicar esta variable por un 'Delta Time' que se encuentra en <code> Right Click > 'Time' > Get Delta Time</code>. Para realizar la multiplicacion, necesitamos el nodo 'Formula' customizada de la manera: <code>Right Click > Formula</code> y luego, <code>Formula = AB, Inputs = 2</code>, conectar el nodo 'Delta Time' y 'speed' a el nodo 'Formula' y tomar el output (El circulo de la derecha del nodo) y conectarlo al transform en donde corresponda el movimiento, este lo conectaremos a el circulo 'Z'' del nodo 'Translate'</p>
+
+<p>Nuestro blueprint debe verse de esta manera: </p>
+
+<image src="Challenge 4/forward.png" width=50% height=50%>
+
+<h2> Utilizando el Blueprint para las demas direcciones </h2>
+<p>Vamos a seleccionar todos los nodos del blueprint con nuestro left click aguantado y vamos a <code>CTRL+C > CTRL+V x2</code> para evitar repetir pasos y solamente usar los nodos que ya creamos.</p>
+
+<h3>Movimiento hacia atras</h3>
+<p>Para este movimiento, ya que es en el mismo axis Z y es opuesto al movimiento hacia el frente, queremos cambiar las teclas por las que busca el juego de <code> Key 'W' > Key 'S'</code> y <code>Key 'Up Arrow' > Key 'Down Arrow'</code> y vamos a querer alterar la multiplicacion un poco, como el movimiento es OPUESTO al delantero, pues significa que nos estaremos moviendo en Z de manera NEGATIVA. Para esto, pondremos un nodo nuevo <code>Right Click > Multiply</code> y editaremos nuestro nodo 'Formula' de manera en que: <code> Formula = '-1 A' </code> y <code> Inputs = 1 </code> Ahora desconectamos el nodo 'Delta Time' de 'Formula' y solo dejamos nuestro 'speed' como la variable A del nodo 'Formula'. Ahora, conectamos el resultado de este nodo y Delta Time con las entradas de 'Multiply' de esta manera: </p>
+
+<image src="Challenge 4/orientchange.png" width=50% height=50%>
+
+<p> Finalmente' pondremos el resultado del nodo 'Multiply' al valor de la Z en el nodo 'Transform.Translate' y terminamos nuestra logica para el movimiento hacia atras. Ahora, hagamos una copia de este blueprint para usarse en otro movimiento <code>CTRL+C > CTRL+V</code>.</p>
+<image src="Challenge 4/backward.png" width=50% height=50%>
+
+<h3>Movimiento hacia la derecha</h3>
+<p>Utilizaremos una copia del primer blueprint ya que el movimiento hacia la derecha es un valor POSITIVO. Para este movimiento, solo vamos a necesitar cambiar las teclas por las que busca el juego: <code>Key 'W' > Key 'D'</code> y <code>Key 'Up Arrow' > Key 'Right Arrow'</code>.  Por ultimo, desconectamos el resultado del nodo 'Formula' de Z y lo conectamos hacia la X del nodo 'Transform.Translate'</p>
+
+<image src="Challenge 4/right.png" width=50% height=50%>
+
+<h3>Movimiento hacia la izquierda</h3>
+<p>Para este, usaremos la copia del blueprint de el movimiento hacia atras, cambiaremos las teclas que busca el juego: <code>Key 'S' > Key 'A'</code> y <code>Key'Down Arrow' > Key 'Left Arrow'</code> y cambiamos la conexion del nodo 'Multiply' de la Z hacia la X de el nodo 'Transform.Translate'.</p>
+
+<image src="Challenge 4/left.png" width=50% height=50%>
+
+<h2>Rotacion de Player con Mouse</h2>
+<p>Para lograr que nuestro personaje pueda rotar y virarse con la orientacion de nuestro mouse\cursor, necesitamos crear 3 nodos nuevos: <code>Right Click > Get Axis > Axis Name = Mouse X</code>, <code>Right Click > Formula > Formula = A*B and Inputs = 2</code> y <code>Right Click > Transform > Rotate(X, Y, Z)</code>. Conectaremos el resultado del nodo 'Formula' a el 'Y Angle' del nodo 'Transform.Rotation' y para terminar esto, buscaremos nuestra variable 'speedRotation' desde la esquina de la izquierda y le hacemos <code>Drag & Drop</code> al canvas y la conectaremos a el nodo 'Formula'</p>
+
+<image src="Challenge 4/rotation.png" width=50% height=50%>
+
+<p>Como podemos ver en la imagen, tenemos un nodo extra que nos va a ser sumamente importante para el final de esta grafica, el nodo 'Sequence'. Para ponerlo, haremos <code>Right Click > Sequence > Steps = 6</code>, la razon por la que usamos 6 steps es porque con este nodo es que conectaremos TODOS los nodos 'IF' al nodo principal 'Update' para que corran simultaneamente. Simplemente, conectemos uno de las muchas flechitas saliendo del nodo 'Sequence' a un nodo 'IF' de cada uno de los movimientos como este ejemplo y conectemos el nodo 'Update' al nodo 'Sequence' y ahora todo correra simultaneamente.</p>
+
+<image src="Challenge 4/sequence.png" width=50% height=50%>
+
+<h2> BONO: Cursor Invisible y Locked </h2>
+<p>Como decidimos utilizar la funcionalidad de esconder y lock el cursor para que no moleste en debugging, lo decidimos hacer en visual graphing tambien. Primero, se crea un nodo <code>Right Click > 'Sequence' > Steps = 2</code>, y luego dos nodos <code>Right Click > Cursor > Set Visible</code>, <code> Right Click > Cursor > Set Lock State > Locked</code> y conectamos los nodos del cursor a los pasos de 'Sequence' y este lo conectamos al nodo 'On Start' para que tome efectividad en el primer frame. </p>
+
+<image src="Challenge 4/cursor.png" width=50% height=50%>
+
+<h2>Finale de Visual Graph</h2>
+
+<image src="Challenge 4/final.png" width=50% height=50%>
